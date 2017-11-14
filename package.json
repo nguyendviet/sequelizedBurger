@@ -1,0 +1,26 @@
+{
+  "name": "sequelizedburger",
+  "version": "1.0.0",
+  "description": "eat-da-vegan-burger using sequelize",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyendviet/sequelizedBurger.git"
+  },
+  "keywords": [
+    "gwu",
+    "sequelize",
+    "nodejs",
+    "mysql"
+  ],
+  "author": "Viet Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nguyendviet/sequelizedBurger/issues"
+  },
+  "homepage": "https://github.com/nguyendviet/sequelizedBurger#readme"
+}
