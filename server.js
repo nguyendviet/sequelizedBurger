@@ -1,21 +1,26 @@
 var express = require('express');
-var app = express();
 var bParse = require('body-parser');
-app.use(bParse.urlencoded({extended: true}));
-app.use(bParse.json());
-app.use(express.static('public')); // serve static content from folder public
-
-var port = process.env.PORT || 3306;
-
+var app = express();
+var port = process.env.port || 3000;
+var db = require('./models');
 var eHandle = require('express-handlebars');
+
+// use express to parse data
+app.use(bParse.json());
+app.use(bParse.urlencoded({extended: true}));
+app.use(bParse.text());
+app.use(bParse.json({type: 'application/vnd.api+json'}));
+app.use(express.static('public'));
+
 // Set Handlebars as the default templating engine
 app.engine('handlebars', eHandle({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-var routes = require('./controllers/burgers_controller.js');
+require('./routes/api-routes.js')(app);
+require("./routes/html-routes.js")(app);
 
-app.use('/', routes);
-
-app.listen(port, ()=>{
-    console.log('Listening on port: ' + port);
-})
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(port, function() {
+    console.log('App listening on port ' + port);
+  });
+});
