@@ -5,7 +5,7 @@ const eHandle = require('express-handlebars');
 const db = require('./models');
 // set up express
 const app = express();
-var port = process.env.port || 3000;
+const port = process.env.port || 3000;
 
 // use express to parse data
 app.use(bParse.json());

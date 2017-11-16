@@ -2,12 +2,14 @@ const db = require('../models');
 
 module.exports = (app)=>{
 
+  // show all burgers
   app.get('/api/burgers', (req, res)=>{
     db.Burger.findAll({}).then((result)=>{
       res.json(result);
     });
   });
 
+  // update devoured burger
   app.put('/api/burgers/:id', (req, res)=>{
     db.Burger.update(
       {
@@ -19,6 +21,15 @@ module.exports = (app)=>{
         }
       })
     .then((result)=>{
+      res.json(result);
+    });
+  });
+
+  // add new burger
+  app.post('/api/burgers', (req, res)=>{
+    db.Burger.create({
+      burger_name: req.body.name
+    }).then((result)=>{
       res.json(result);
     });
   });
