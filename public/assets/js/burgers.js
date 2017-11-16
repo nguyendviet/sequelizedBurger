@@ -1,16 +1,13 @@
 $(()=>{
     
-  $('.devour').on('click', function(event) {
+  $('.devour').on('click', function() {
     var id = $(this).data('id'); // if use this, can't use arrow function
-
-    console.log('id shoud get ' + id);
 
     // Send PUT request
     $.ajax('/api/burgers/' + id, {
       type: 'PUT',
     })
     .then(()=>{
-      console.log('burger devoured');
       // Reload page to get the updated list
       location.reload();
     });
@@ -32,7 +29,6 @@ $(()=>{
         data: newBurger
       })
       .then(()=>{
-        console.log('new burger created');
         location.reload();
       });
     }
