@@ -9,6 +9,13 @@ module.exports = (app)=>{
     });
   });
 
+  // show all customers
+  app.get('/api/customers', (req, res)=>{
+    db.Customer.findAll({}).then((result)=>{
+      res.json(result);
+    });
+  });
+
   // update devoured burger
   app.put('/api/burgers/:id', (req, res)=>{
     db.Burger.update(

@@ -12,5 +12,15 @@ module.exports = (sequelize, DataTypes)=>{
       defaultValue: false
     }
   });
+
+  // link burger with customer
+  Burger.associate = (models)=>{
+    Burger.belongsTo(models.Customer, {
+      foreignKey: {
+        allowNull: true
+      }
+    });
+  };
+
   return Burger;
 };

@@ -9,4 +9,13 @@ module.exports = (app)=>{
             res.render('index', bugerObj);
         });
     });
+
+    app.get('/customers', (req, res)=>{
+        db.Customer.findAll({}).then((data)=>{
+            var customerObj = {
+                customers: data
+            };
+            res.render('customer', customerObj);
+        });
+    });
 };
