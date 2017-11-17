@@ -13,7 +13,7 @@
                 {{#each customers}}
                     <li>
                         {{customer_name}}
-                        <button class="btn btn-sm btn-success remove" data-id="{{this.id}}">Remove</button>
+                        <button class="btn btn-sm btn-danger remove" data-id="{{this.id}}">Remove</button>
                     </li>
                 {{/each}}
             </ul>
@@ -45,5 +45,8 @@
         </div>
         <button type="submit" class="btn btn-primary add-customer">Add</button>
     </form>
-    <a href="/">See all burgers</a>
+
+    <div class="container">
+        <a href="/"><span style="color: white;">Go to Burgers List</span></a>
+    </div>
 </div>

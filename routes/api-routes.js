@@ -40,4 +40,24 @@ module.exports = (app)=>{
       res.json(result);
     });
   });
+
+  // add new customer
+  app.post('/api/customers', (req, res)=>{
+    db.Customer.create({
+      customer_name: req.body.name
+    }).then((result)=>{
+      res.json(result);
+    });
+  });
+
+  // remove customer
+  app.delete("/api/customers/:id", (req, res)=>{
+    db.Customer.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then((result)=>{
+      res.json(result);
+    });
+  });
 };
