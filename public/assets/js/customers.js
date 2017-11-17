@@ -3,7 +3,7 @@ $(()=>{
   $('.remove').on('click', function() {
     var id = $(this).data('id'); // if use this, can't use arrow function
 
-    // Send PUT request
+    // Send DESTROY request
     $.ajax('/api/customers/' + id, {
       type: 'DELETE',
     })
