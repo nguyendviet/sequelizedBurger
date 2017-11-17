@@ -5,7 +5,7 @@ const eHandle = require('express-handlebars');
 const db = require('./models');
 // set up express
 const app = express();
-const port = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 
 // use express to parse data
 app.use(bParse.json());
@@ -30,7 +30,7 @@ db.sequelize.sync({force: true}).then(()=>{
     {burger_name: 'Beet Burger'}
   ]);
 
-  app.listen(port, ()=>{
-    console.log('App listening on port ' + port);
+  app.listen(PORT, ()=>{
+    console.log('App listening on port ' + PORT);
   });
 });
