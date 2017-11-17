@@ -14,7 +14,7 @@
                     {{#unless devoured}}
                         <li>
                             {{burger_name}}
-                            <button class="btn btn-success sell" data-id="{{this.id}}">Sell</button>
+                            <button class="btn btn-sm btn-success sell" data-id="{{this.id}}">Sell</button>
                         </li>
                     {{/unless}} 
                 {{/each}}
@@ -22,14 +22,14 @@
         </div>
 
         <div class="col-md-6">
-            <h2 class="text-center">Devoured burgers</h2>
+            <h2 class="text-center">Sold burgers</h2>
 
             <ul>
                 {{#each burgers}}
                     {{#if devoured}}
                         <li>
                             {{burger_name}}
-                            <p> sold to ...</p>
+                            <p> sold to a customer</p>
                         </li>
                     {{/if}} 
                 {{/each}}
@@ -48,8 +48,4 @@
         </div>
         <button type="submit" class="btn btn-primary add-burger">Add</button>
     </form>
-
-    <div class="container">
-        <a href="/customers"><span style="color: white;">Go to Customers List</span></a>
-    </div>
 </div>
