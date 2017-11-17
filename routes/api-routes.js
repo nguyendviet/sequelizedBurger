@@ -18,6 +18,9 @@ module.exports = (app)=>{
 
   // update devoured burger
   app.put('/api/burgers/:id', (req, res)=>{
+
+    console.log('\ncustomer name: ' + req.body.name);
+
     db.Burger.update(
       {
         devoured: true

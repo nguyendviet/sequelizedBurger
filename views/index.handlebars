@@ -14,7 +14,10 @@
                     {{#unless devoured}}
                         <li>
                             {{burger_name}}
-                            <button class="btn btn-success sell" data-id="{{this.id}}">Sell</button>
+                            <form action="">
+                                <input type="text" name="customerName" placeholder="Customer Name" class="customer-name">
+                                <button type="submit" class="btn btn-success sell" data-id="{{this.id}}">Sell</button>
+                            </form>
                         </li>
                     {{/unless}} 
                 {{/each}}
