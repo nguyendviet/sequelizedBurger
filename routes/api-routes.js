@@ -26,8 +26,8 @@ module.exports = (app)=>{
         where: {
           id: req.params.id
         }
-      })
-    .then((result)=>{
+      }
+    ).then((result)=>{
       res.json(result);
     });
   });

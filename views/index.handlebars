@@ -14,8 +14,7 @@
                     {{#unless devoured}}
                         <li>
                             {{burger_name}}
-							<select class="form-control customer"></select>
-                            <button class="btn btn-sm btn-success devour" data-id="{{this.id}}">Devour</button>
+                            <button class="btn btn-success sell" data-id="{{this.id}}">Sell</button>
                         </li>
                     {{/unless}} 
                 {{/each}}
@@ -30,6 +29,7 @@
                     {{#if devoured}}
                         <li>
                             {{burger_name}}
+                            <p> sold to ...</p>
                         </li>
                     {{/if}} 
                 {{/each}}
