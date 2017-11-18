@@ -1,31 +1,38 @@
 $(()=>{
+  var url = window.location.search;
+  var customerName;
+
+  if (url.indexOf("?customerName=") !== -1) {
+    customerName = url.split('=')[1];
+  }
+
+  function updateCustomer(id) {
+    var newCustomer = {name: customerName};
+
+    $.ajax('/api/customers', {
+      type: 'POST',
+      data: newCustomer
+    })
+    // .then(updateBurger(id));
+  }
+
+  // function updateBurger(id) {
+  //   // Send PUT request
+  //   $.ajax('/api/burgers/' + id, {
+  //     type: 'PUT'
+  //   })
+  //   .then(()=>{
+  //     // Reload page to get the updated list
+  //     location.reload();
+  //   });
+  // }
 
   $('.sell').on('submit', function(event) {
     event.preventDefault();
 
     var id = $(this).data('id'); // if use this, can't use arrow function
 
-    // UNABLE TO SEND CUSTOMER NAME TO DATABASE
-    var nameGot = $('.customer-name');
-
-    var newData = {
-      name: nameGot.text()
-    };
-
-    updateBurger(newData);
-
-    function updateBurger(newData) {
-      $.ajax({
-        method: 'PUT',
-        url: '/api/burgers/' + id,
-        data: newData
-      })
-      .done(()=>{
-        window.location.href = "/";
-      });
-    }
-
-
+    updateCustomer(id);
   });
 
   // THIS FUNCTION WORKS ONLY TO SELL BURGER
