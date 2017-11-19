@@ -14,7 +14,8 @@
                     {{#unless devoured}}
                         <li>
                             {{burger_name}}
-                            <form action="">
+                            {{!-- form to submit customer name and sell burger --}}
+                            <form>
                                 <input type="text" name="customerName" class="customer-name" placeholder="Customer Name">
                                 <button type="submit" class="btn btn-success sell" data-id="{{this.id}}">Sell</button>
                             </form>
